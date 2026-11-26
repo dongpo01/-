@@ -15,13 +15,10 @@
       --text-secondary: #4a5568;
       --border: #e2e8f0;
       --success: #276749;
-      --warning: #c05621;
       --radius: 12px;
       --shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       background: var(--bg);
@@ -29,8 +26,6 @@
       line-height: 1.6;
       min-height: 100vh;
     }
-
-    /* Header */
     header {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
@@ -43,25 +38,9 @@
       z-index: 100;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
-
-    header h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    header h1 span {
-      font-weight: 300;
-      opacity: 0.85;
-      font-size: 0.95rem;
-      margin-left: 0.6rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 0.5rem;
-    }
-
+    header h1 { font-size: 1.4rem; font-weight: 600; }
+    header h1 span { font-weight: 300; opacity: 0.85; font-size: 0.95rem; margin-left: 0.6rem; }
+    nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     nav button {
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.25);
@@ -72,46 +51,17 @@
       font-size: 0.9rem;
       transition: all 0.2s;
     }
-
-    nav button:hover, nav button.active {
-      background: white;
-      color: var(--primary);
-    }
-
-    /* Main Layout */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
-
+    nav button:hover, nav button.active { background: white; color: var(--primary); }
+    main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
     .section { display: none; }
     .section.active { display: block; animation: fadeIn 0.3s ease; }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.4rem;
-      color: var(--primary);
-    }
-
-    .subtitle {
-      color: var(--text-secondary);
-      margin-bottom: 1.8rem;
-      font-size: 0.95rem;
-    }
-
-    /* Cards Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.2rem;
-    }
-
+    h2 { font-size: 1.5rem; margin-bottom: 0.4rem; color: var(--primary); }
+    .subtitle { color: var(--text-secondary); margin-bottom: 1.8rem; font-size: 0.95rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
     .card {
       background: var(--card);
       border-radius: var(--radius);
@@ -121,12 +71,7 @@
       transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
     }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
-    }
-
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
     .card .tag {
       display: inline-block;
       font-size: 0.75rem;
@@ -137,27 +82,13 @@
       margin-right: 0.4rem;
       margin-bottom: 0.5rem;
     }
-
     .card .tag.diff-初级 { background: #c6f6d5; color: var(--success); }
     .card .tag.diff-中级 { background: #fefcbf; color: #975a16; }
     .card .tag.diff-高级 { background: #fed7d7; color: var(--accent); }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .card .meta {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-top: 0.8rem;
-    }
-
-    /* Material Detail Modal */
+    .card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .card .meta { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem; }
     .modal-overlay {
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: rgba(0,0,0,0.45);
       display: none;
       align-items: center;
@@ -165,9 +96,7 @@
       z-index: 200;
       padding: 1rem;
     }
-
     .modal-overlay.show { display: flex; }
-
     .modal {
       background: white;
       border-radius: 16px;
@@ -179,64 +108,24 @@
       position: relative;
       animation: slideUp 0.25s ease;
     }
-
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .modal .close {
-      position: absolute;
-      top: 1rem;
-      right: 1.2rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-secondary);
+      position: absolute; top: 1rem; right: 1.2rem;
+      background: none; border: none;
+      font-size: 1.5rem; cursor: pointer; color: var(--text-secondary);
     }
-
-    .modal h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary);
-      padding-right: 2rem;
-    }
-
-    .modal .field {
-      margin-bottom: 1rem;
-    }
-
-    .modal .field label {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.25rem;
-    }
-
-    .modal .field p {
-      font-size: 0.95rem;
-    }
-
+    .modal .field { margin-bottom: 1rem; }
+    .modal .field label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+    .modal .field p { font-size: 0.95rem; }
     .modal .original {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--primary);
-      line-height: 1.5;
-      background: #f0f5ff;
-      padding: 0.9rem 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      font-size: 1.15rem; font-weight: 500; color: var(--primary);
+      line-height: 1.5; background: #f0f5ff;
+      padding: 0.9rem 1rem; border-radius: 8px; margin-bottom: 1rem;
     }
-
-    /* Filters */
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-    }
-
+    .filters { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
     .filters select, .filters input {
       padding: 0.5rem 0.9rem;
       border: 1px solid var(--border);
@@ -244,10 +133,7 @@
       font-size: 0.9rem;
       background: white;
     }
-
-    .filters input { min-width: 200px; }
-
-    /* Practice Area */
+    .filters input { min-width: 180px; }
     .practice-card {
       background: var(--card);
       border-radius: var(--radius);
@@ -256,12 +142,7 @@
       border: 1px solid var(--border);
       margin-bottom: 1.5rem;
     }
-
-    .practice-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.6rem;
-    }
-
+    .practice-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
     .practice-card .context {
       background: #f7fafc;
       padding: 1rem;
@@ -270,23 +151,14 @@
       font-size: 0.95rem;
       border-left: 4px solid var(--primary-light);
     }
-
-    .materials-list {
-      margin: 1rem 0;
-    }
-
-    .materials-list li {
-      margin-bottom: 0.4rem;
-      font-size: 0.9rem;
-    }
-
+    .materials-list { margin: 1rem 0; }
+    .materials-list li { margin-bottom: 0.4rem; font-size: 0.9rem; }
     .materials-list code {
       background: #edf2f7;
       padding: 0.15rem 0.4rem;
       border-radius: 4px;
       font-size: 0.8rem;
     }
-
     textarea {
       width: 100%;
       min-height: 140px;
@@ -298,13 +170,11 @@
       font-family: inherit;
       margin-top: 0.8rem;
     }
-
     textarea:focus {
       outline: none;
       border-color: var(--primary-light);
       box-shadow: 0 0 0 3px rgba(43,108,176,0.15);
     }
-
     .btn {
       display: inline-block;
       padding: 0.65rem 1.5rem;
@@ -315,30 +185,11 @@
       transition: all 0.2s;
       font-weight: 500;
     }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
+    .btn-primary { background: var(--primary); color: white; }
     .btn-primary:hover { background: var(--primary-light); }
-
-    .btn-outline {
-      background: white;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
+    .btn-outline { background: white; border: 1px solid var(--border); color: var(--text); }
     .btn-outline:hover { border-color: var(--primary-light); color: var(--primary-light); }
-
-    .btn-group {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* Feedback Panel */
+    .btn-group { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
     .feedback-panel {
       display: none;
       margin-top: 1.5rem;
@@ -347,23 +198,9 @@
       border-radius: var(--radius);
       border: 1px solid #9ae6b4;
     }
-
     .feedback-panel.show { display: block; animation: fadeIn 0.3s; }
-
-    .score-big {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--success);
-      margin-bottom: 0.3rem;
-    }
-
-    .radar-placeholder {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin: 1rem 0;
-    }
-
+    .score-big { font-size: 2.5rem; font-weight: 700; color: var(--success); margin-bottom: 0.3rem; }
+    .radar-placeholder { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
     .dim-score {
       background: white;
       padding: 0.6rem 1rem;
@@ -371,32 +208,16 @@
       font-size: 0.85rem;
       border: 1px solid var(--border);
     }
-
     .dim-score strong { color: var(--primary); }
-
-    .feedback-list {
-      margin-top: 1rem;
-    }
-
-    .feedback-list h4 {
-      font-size: 0.9rem;
-      margin-bottom: 0.4rem;
-      color: var(--text-secondary);
-    }
-
-    .feedback-list ul {
-      padding-left: 1.2rem;
-      font-size: 0.9rem;
-    }
-
-    /* Dashboard */
+    .feedback-list { margin-top: 1rem; }
+    .feedback-list h4 { font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--text-secondary); }
+    .feedback-list ul { padding-left: 1.2rem; font-size: 0.9rem; }
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1rem;
       margin-bottom: 2rem;
     }
-
     .stat-card {
       background: var(--card);
       border-radius: var(--radius);
@@ -405,30 +226,49 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
     }
-
-    .stat-card .num {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .stat-card .label {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-top: 0.2rem;
-    }
-
-    /* Empty / Loading */
-    .empty {
+    .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+    .stat-card .label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem; }
+    .empty { text-align: center; padding: 3rem; color: var(--text-secondary); }
+    .loading {
       text-align: center;
-      padding: 3rem;
+      padding: 4rem 1rem;
       color: var(--text-secondary);
+      font-size: 1.05rem;
     }
-
-    /* Responsive */
+    .loading .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary-light);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .pagination button {
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .pagination button.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
     @media (max-width: 640px) {
       header { flex-direction: column; gap: 0.8rem; padding: 1rem; }
-      nav { width: 100%; justify-content: center; flex-wrap: wrap; }
+      nav { width: 100%; justify-content: center; }
       main { padding: 1.2rem 1rem 3rem; }
     }
   </style>
@@ -445,126 +285,91 @@
   </header>
 
   <main>
-    <!-- Dashboard -->
-    <section id="dashboard" class="section active">
-      <h2>训练总览</h2>
-      <p class="subtitle">以经典为根基，系统提升谈吐素养与口才</p>
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      正在加载完整素材库与练习题…
+    </div>
 
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="num" id="stat-materials">274</div>
-          <div class="label">经典素材</div>
+    <div id="app" style="display:none;">
+      <section id="dashboard" class="section active">
+        <h2>训练总览</h2>
+        <p class="subtitle">以经典为根基，系统提升谈吐素养与口才</p>
+        <div class="stats-row">
+          <div class="stat-card"><div class="num" id="stat-materials">—</div><div class="label">经典素材</div></div>
+          <div class="stat-card"><div class="num" id="stat-exercises">—</div><div class="label">练习题</div></div>
+          <div class="stat-card"><div class="num">6</div><div class="label">能力维度</div></div>
+          <div class="stat-card"><div class="num" id="stat-done">0</div><div class="label">已完成练习</div></div>
         </div>
-        <div class="stat-card">
-          <div class="num" id="stat-exercises">31</div>
-          <div class="label">练习题</div>
+        <h3 style="margin-bottom:1rem;font-size:1.15rem;">能力维度</h3>
+        <div class="radar-placeholder">
+          <div class="dim-score">素材调用</div>
+          <div class="dim-score">结构完整</div>
+          <div class="dim-score">语境适配</div>
+          <div class="dim-score">修辞表现</div>
+          <div class="dim-score">思维深度</div>
+          <div class="dim-score">表达流畅</div>
         </div>
-        <div class="stat-card">
-          <div class="num">6</div>
-          <div class="label">能力维度</div>
+        <div style="margin-top:2rem;">
+          <h3 style="margin-bottom:0.8rem;font-size:1.15rem;">推荐练习</h3>
+          <div class="grid" id="recommend-grid"></div>
         </div>
-        <div class="stat-card">
-          <div class="num" id="stat-done">0</div>
-          <div class="label">已完成练习</div>
+      </section>
+
+      <section id="materials" class="section">
+        <h2>经典素材库</h2>
+        <p class="subtitle" id="materials-subtitle">加载中…</p>
+        <div class="filters">
+          <select id="filter-category"><option value="">全部类别</option></select>
+          <select id="filter-scene">
+            <option value="">全部场景</option>
+            <option value="职场谈吐">职场谈吐</option>
+            <option value="演讲开场">演讲开场</option>
+            <option value="演讲结尾">演讲结尾</option>
+            <option value="辩论反驳">辩论反驳</option>
+            <option value="激励鼓舞">激励鼓舞</option>
+            <option value="劝慰安慰">劝慰安慰</option>
+            <option value="社交闲谈">社交闲谈</option>
+            <option value="自我介绍">自我介绍</option>
+          </select>
+          <select id="filter-diff">
+            <option value="">全部难度</option>
+            <option value="初级">初级</option>
+            <option value="中级">中级</option>
+            <option value="高级">高级</option>
+          </select>
+          <input type="text" id="filter-search" placeholder="搜索原文或出处..." />
         </div>
-      </div>
+        <div class="grid" id="materials-grid"></div>
+        <div class="pagination" id="materials-pagination"></div>
+      </section>
 
-      <h3 style="margin-bottom:1rem;font-size:1.15rem;">能力雷达（示例）</h3>
-      <div class="radar-placeholder" id="radar-demo">
-        <div class="dim-score">素材调用 <strong>78</strong></div>
-        <div class="dim-score">结构完整 <strong>72</strong></div>
-        <div class="dim-score">语境适配 <strong>81</strong></div>
-        <div class="dim-score">修辞表现 <strong>65</strong></div>
-        <div class="dim-score">思维深度 <strong>70</strong></div>
-        <div class="dim-score">表达流畅 <strong>85</strong></div>
-      </div>
+      <section id="practice" class="section">
+        <h2>开始练习</h2>
+        <p class="subtitle">选择一道题，按要求完成表达，获取即时反馈</p>
+        <div class="filters">
+          <select id="ex-filter-type"><option value="">全部类型</option></select>
+          <select id="ex-filter-diff">
+            <option value="">全部难度</option>
+            <option value="初级">初级</option>
+            <option value="中级">中级</option>
+            <option value="高级">高级</option>
+          </select>
+        </div>
+        <div class="grid" id="exercises-grid"></div>
+        <div id="active-practice" style="display:none;">
+          <div class="practice-card" id="practice-detail"></div>
+          <div class="feedback-panel" id="feedback-panel"></div>
+        </div>
+      </section>
 
-      <div style="margin-top:2rem;">
-        <h3 style="margin-bottom:0.8rem;font-size:1.15rem;">推荐练习</h3>
-        <div class="grid" id="recommend-grid"></div>
-      </div>
-    </section>
-
-    <!-- Materials -->
-    <section id="materials" class="section">
-      <h2>经典素材库</h2>
-      <p class="subtitle">274 条精选素材，支持按场景、难度、类别筛选</p>
-
-      <div class="filters">
-        <select id="filter-category">
-          <option value="">全部类别</option>
-          <option value="古诗词金句">古诗词金句</option>
-          <option value="典故与成语">典故与成语</option>
-          <option value="诸子百家与经典语录">诸子百家</option>
-          <option value="史传与人物对话">史传对话</option>
-          <option value="全球经典名言">全球经典</option>
-          <option value="专项补充">专项补充</option>
-        </select>
-        <select id="filter-scene">
-          <option value="">全部场景</option>
-          <option value="职场谈吐">职场谈吐</option>
-          <option value="演讲开场">演讲开场</option>
-          <option value="演讲结尾">演讲结尾</option>
-          <option value="辩论反驳">辩论反驳</option>
-          <option value="激励鼓舞">激励鼓舞</option>
-          <option value="劝慰安慰">劝慰安慰</option>
-          <option value="社交闲谈">社交闲谈</option>
-          <option value="自我介绍">自我介绍</option>
-        </select>
-        <select id="filter-diff">
-          <option value="">全部难度</option>
-          <option value="初级">初级</option>
-          <option value="中级">中级</option>
-          <option value="高级">高级</option>
-        </select>
-        <input type="text" id="filter-search" placeholder="搜索原文或出处..." />
-      </div>
-
-      <div class="grid" id="materials-grid"></div>
-    </section>
-
-    <!-- Practice -->
-    <section id="practice" class="section">
-      <h2>开始练习</h2>
-      <p class="subtitle">选择一道题，按要求完成表达，获取即时反馈</p>
-
-      <div class="filters">
-        <select id="ex-filter-type">
-          <option value="">全部类型</option>
-          <option value="金句嵌入">金句嵌入</option>
-          <option value="仿写改写">仿写改写</option>
-          <option value="即兴发言">即兴发言</option>
-          <option value="辩论反驳">辩论反驳</option>
-          <option value="情境角色扮演">情境角色扮演</option>
-          <option value="结构模板填充">结构模板填充</option>
-          <option value="快速反应">快速反应</option>
-        </select>
-        <select id="ex-filter-diff">
-          <option value="">全部难度</option>
-          <option value="初级">初级</option>
-          <option value="中级">中级</option>
-          <option value="高级">高级</option>
-        </select>
-      </div>
-
-      <div class="grid" id="exercises-grid"></div>
-
-      <!-- Active Practice -->
-      <div id="active-practice" style="display:none;">
-        <div class="practice-card" id="practice-detail"></div>
-        <div class="feedback-panel" id="feedback-panel"></div>
-      </div>
-    </section>
-
-    <!-- History -->
-    <section id="history" class="section">
-      <h2>练习记录</h2>
-      <p class="subtitle">本地保存最近练习（刷新后仍保留）</p>
-      <div id="history-list" class="empty">暂无练习记录，去完成第一道题吧。</div>
-    </section>
+      <section id="history" class="section">
+        <h2>练习记录</h2>
+        <p class="subtitle">本地保存最近练习（刷新后仍保留）</p>
+        <div id="history-list" class="empty">暂无练习记录，去完成第一道题吧。</div>
+      </section>
+    </div>
   </main>
 
-  <!-- Material Modal -->
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <button class="close" onclick="closeModal()">&times;</button>
@@ -573,170 +378,6 @@
   </div>
 
   <script>
-    // ===================== 模拟数据（精简版，实际可 fetch JSON） =====================
-    const MATERIALS = [
-      {id:"P1-0001",category:"古诗词金句",original:"关关雎鸠，在河之洲。窈窕淑女，君子好逑。",source:"《诗经·周南·关雎》",meaning:"美好的追求与匹配，君子求贤配。",usage_example:"表达对理想对象或卓越人才的向往时可用。",difficulty:"初级",scenes:["社交闲谈","通用"],themes:["爱情","追求"]},
-      {id:"P1-0007",category:"古诗词金句",original:"天行健，君子以自强不息。",source:"《周易·乾卦》",meaning:"天道刚健，君子应永不停息地自我提升。",usage_example:"激励持续奋斗、不懈怠的开场或结尾。",difficulty:"初级",scenes:["演讲开场","激励鼓舞","职场谈吐"],themes:["自强","奋斗"]},
-      {id:"P1-0010",category:"古诗词金句",original:"满招损，谦受益。",source:"《尚书·大禹谟》",meaning:"自满招致损失，谦虚使人受益。",usage_example:"劝诫谦逊、反对骄傲的场合。",difficulty:"初级",scenes:["职场谈吐","演讲开场"],themes:["谦虚"]},
-      {id:"P1-0014",category:"古诗词金句",original:"凡事豫则立，不豫则废。",source:"《礼记·中庸》",meaning:"事前准备充分则成功，否则失败。",usage_example:"强调规划与准备的重要性。",difficulty:"初级",scenes:["职场谈吐","演讲开场"],themes:["准备","规划"]},
-      {id:"P1-0016",category:"古诗词金句",original:"路漫漫其修远兮，吾将上下而求索。",source:"屈原《离骚》",meaning:"道路漫长，仍要坚持探索。",usage_example:"表达对理想的执着追求。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["理想","探索"]},
-      {id:"P1-0022",category:"古诗词金句",original:"桃李不言，下自成蹊。",source:"《史记·李将军列传》",meaning:"真正的价值无需自我宣传。",usage_example:"形容以实际行动赢得尊重。",difficulty:"初级",scenes:["职场谈吐","演讲开场"],themes:["实干"]},
-      {id:"P1-0043",category:"古诗词金句",original:"天生我材必有用，千金散尽还复来。",source:"李白《将进酒》",meaning:"自信人生价值，不为物质所困。",usage_example:"鼓励自信与豁达。",difficulty:"初级",scenes:["激励鼓舞","演讲开场"],themes:["自信","豁达"]},
-      {id:"P1-0044",category:"古诗词金句",original:"长风破浪会有时，直挂云帆济沧海。",source:"李白《行路难》",meaning:"总有乘风破浪的一天。",usage_example:"激励在困境中保持希望。",difficulty:"初级",scenes:["演讲结尾","激励鼓舞"],themes:["希望","奋斗"]},
-      {id:"P1-0048",category:"古诗词金句",original:"会当凌绝顶，一览众山小。",source:"杜甫《望岳》",meaning:"站在巅峰俯视一切。",usage_example:"表达攀登高峰、超越自我的志向。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["志向","超越"]},
-      {id:"P1-0056",category:"古诗词金句",original:"横看成岭侧成峰，远近高低各不同。",source:"苏轼《题西林壁》",meaning:"角度不同，所见不同。",usage_example:"说明立场与视角影响认知。",difficulty:"初级",scenes:["演讲开场","辩论反驳","职场谈吐"],themes:["视角","认知"]},
-      {id:"P1-0057",category:"古诗词金句",original:"不识庐山真面目，只缘身在此山中。",source:"苏轼《题西林壁》",meaning:"当局者迷。",usage_example:"提醒跳出局部看整体。",difficulty:"初级",scenes:["演讲开场","辩论反驳"],themes:["认知","局限"]},
-      {id:"P1-0060",category:"古诗词金句",original:"竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。",source:"苏轼《定风波》",meaning:"从容面对风雨。",usage_example:"表达乐观与随遇而安。",difficulty:"中级",scenes:["激励鼓舞","劝慰安慰"],themes:["乐观","从容"]},
-      {id:"P1-0071",category:"典故与成语",original:"破釜沉舟",source:"《史记·项羽本纪》",meaning:"下定决心，不留后路。",usage_example:"强调破釜沉舟的决心与全力以赴。",difficulty:"初级",scenes:["职场谈吐","激励鼓舞","辩论反驳"],themes:["决心","勇气"]},
-      {id:"P1-0072",category:"典故与成语",original:"卧薪尝胆",source:"《史记·越王勾践世家》",meaning:"刻苦自励，发愤图强。",usage_example:"描述长期隐忍与最终逆袭。",difficulty:"初级",scenes:["激励鼓舞","职场谈吐"],themes:["隐忍","坚持"]},
-      {id:"P1-0083",category:"典故与成语",original:"塞翁失马，焉知非福",source:"《淮南子·人间训》",meaning:"坏事可能变成好事，福祸相依。",usage_example:"表达祸福相依、辩证看待得失。",difficulty:"初级",scenes:["辩论反驳","劝慰安慰"],themes:["辩证","得失"]},
-      {id:"P1-0091",category:"典故与成语",original:"纸上谈兵",source:"《史记·廉颇蔺相如列传》",meaning:"空谈理论，不能解决实际问题。",usage_example:"批评脱离实际的空谈。",difficulty:"初级",scenes:["辩论反驳","职场谈吐"],themes:["空谈","实践"]},
-      {id:"P1-0101",category:"诸子百家与经典语录",original:"己所不欲，勿施于人。",source:"《论语·颜渊》",meaning:"自己不愿意的，不要强加给别人。",usage_example:"强调换位思考与基本道德原则。",difficulty:"初级",scenes:["职场谈吐","社交闲谈"],themes:["仁恕","道德"]},
-      {id:"P1-0103",category:"诸子百家与经典语录",original:"知之为知之，不知为不知，是知也。",source:"《论语·为政》",meaning:"知道就是知道，不知道就承认不知道。",usage_example:"强调诚实面对自己的认知边界。",difficulty:"初级",scenes:["职场谈吐","自我介绍"],themes:["诚实","认知"]},
-      {id:"P1-0110",category:"诸子百家与经典语录",original:"君子和而不同，小人同而不和。",source:"《论语·子路》",meaning:"真正的合作是和谐而保留差异。",usage_example:"讨论团队多样性与真正协作时使用。",difficulty:"中级",scenes:["职场谈吐","辩论反驳"],themes:["和谐","多样性"]},
-      {id:"P1-0114",category:"诸子百家与经典语录",original:"富贵不能淫，贫贱不能移，威武不能屈。",source:"《孟子·滕文公下》",meaning:"定义真正的人格力量。",usage_example:"表达人格独立与气节。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["人格","气节"]},
-      {id:"P1-0122",category:"诸子百家与经典语录",original:"上善若水。水善利万物而不争。",source:"《道德经》第八章",meaning:"最高的善像水一样，滋养万物却不争夺。",usage_example:"阐述柔弱、利他与不争的智慧。",difficulty:"中级",scenes:["演讲开场","职场谈吐"],themes:["柔弱","利他"]},
-      {id:"P1-0125",category:"诸子百家与经典语录",original:"千里之行，始于足下。",source:"《道德经》第六十四章",meaning:"千里远行从脚下第一步开始。",usage_example:"强调行动与积累的重要性。",difficulty:"初级",scenes:["激励鼓舞","职场谈吐"],themes:["行动","积累"]},
-      {id:"P1-0135",category:"诸子百家与经典语录",original:"青，取之于蓝，而青于蓝。",source:"《荀子·劝学》",meaning:"学生可以超越老师，后辈可以超越前辈。",usage_example:"鼓励后辈超越与持续进步。",difficulty:"初级",scenes:["激励鼓舞","演讲开场"],themes:["超越","学习"]},
-      {id:"P1-0140",category:"诸子百家与经典语录",original:"不积跬步，无以至千里。",source:"《荀子·劝学》",meaning:"没有一步一步的积累，就走不到千里。",usage_example:"强调积累的力量。",difficulty:"初级",scenes:["职场谈吐","激励鼓舞"],themes:["积累"]},
-      {id:"P1-0151",category:"史传与人物对话",original:"先天下之忧而忧，后天下之乐而乐。",source:"范仲淹《岳阳楼记》",meaning:"以天下为己任的崇高情怀。",usage_example:"表达社会责任感与格局。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["责任","格局"]},
-      {id:"P1-0152",category:"史传与人物对话",original:"人生自古谁无死？留取丹心照汗青。",source:"文天祥《过零丁洋》",meaning:"舍生取义的气节。",usage_example:"表达忠诚与牺牲精神。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["气节","忠义"]},
-      {id:"P1-0161",category:"全球经典名言",original:"The only thing we have to fear is fear itself.",source:"富兰克林·罗斯福",meaning:"我们唯一需要恐惧的就是恐惧本身。",usage_example:"鼓励克服恐惧，直面挑战。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["勇气","恐惧"]},
-      {id:"P1-0164",category:"全球经典名言",original:"I have a dream.",source:"马丁·路德·金",meaning:"我有一个梦想。",usage_example:"用简洁有力的句式开启愿景描述。",difficulty:"初级",scenes:["演讲开场","激励鼓舞"],themes:["梦想","愿景"]},
-      {id:"P1-0170",category:"全球经典名言",original:"That which does not kill us makes us stronger.",source:"尼采",meaning:"杀不死我们的，会使我们更强大。",usage_example:"阐述苦难对成长的积极意义。",difficulty:"中级",scenes:["激励鼓舞","劝慰安慰"],themes:["苦难","成长"]},
-      {id:"P1-0180",category:"专项补充",original:"临渊羡鱼，不如退而结网。",source:"《汉书·董仲舒传》",meaning:"与其羡慕，不如行动。",usage_example:"从羡慕转向实际行动。",difficulty:"初级",scenes:["职场谈吐","激励鼓舞"],themes:["行动","务实"]},
-      {id:"P1-0185",category:"专项补充",original:"兼听则明，偏信则暗。",source:"《资治通鉴》引魏徵语",meaning:"广泛听取才能明辨。",usage_example:"反驳只采用单一信息源。",difficulty:"初级",scenes:["辩论反驳","职场谈吐"],themes:["信息","全面"]}
-    ];
-
-    const EXERCISES = [
-      {
-        id: "EX-001",
-        type: "金句嵌入",
-        title: "项目启动会开场",
-        difficulty: "中级",
-        scene: "职场谈吐",
-        context: "你是项目负责人，在项目启动会上需要做3分钟开场，既要鼓舞士气，又要强调准备的重要性。",
-        materials: [
-          {id:"P1-0007", original:"天行健，君子以自强不息。"},
-          {id:"P1-0014", original:"凡事豫则立，不豫则废。"},
-          {id:"P1-0125", original:"千里之行，始于足下。"}
-        ],
-        requirement: "自然嵌入至少2条指定素材，语言流畅，符合职场语境。",
-        time_limit: "准备2分钟，表达2-3分钟",
-        evaluation_points: ["素材是否自然嵌入","是否符合场景语气","逻辑是否清晰","是否完成沟通目标"]
-      },
-      {
-        id: "EX-002",
-        type: "金句嵌入",
-        title: "团队受挫后的激励讲话",
-        difficulty: "中级",
-        scene: "激励鼓舞",
-        context: "团队刚经历一次重大失败，士气低落。你需要在站会上做简短激励。",
-        materials: [
-          {id:"P1-0044", original:"长风破浪会有时，直挂云帆济沧海。"},
-          {id:"P1-0083", original:"塞翁失马，焉知非福"},
-          {id:"P1-0060", original:"竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。"}
-        ],
-        requirement: "使用指定素材，既要承认困难，又要传递希望与行动方向。",
-        time_limit: "准备1分钟，表达1-2分钟",
-        evaluation_points: ["是否承认困难又传递希望","素材使用是否自然","语气是否真诚有力"]
-      },
-      {
-        id: "EX-003",
-        type: "即兴发言",
-        title: "失败是成功之母，还是成功的坟墓？",
-        difficulty: "高级",
-        scene: "辩论反驳",
-        context: "你抽到题目：「失败是成功之母，还是成功的坟墓？」。请做2分钟即兴发言。",
-        materials: [
-          {id:"P1-0083", original:"塞翁失马，焉知非福"},
-          {id:"P1-0170", original:"That which does not kill us makes us stronger."}
-        ],
-        requirement: "必须自然使用至少2条指定素材，结构完整（观点+论证+收束）。",
-        time_limit: "准备30-60秒，表达2分钟",
-        evaluation_points: ["是否完成强制素材使用","结构是否清晰","是否有个人立场"]
-      },
-      {
-        id: "EX-004",
-        type: "辩论反驳",
-        title: "反驳「努力就一定有回报」",
-        difficulty: "高级",
-        scene: "辩论反驳",
-        opponent_view: "只要足够努力，就一定能成功。不成功只是努力不够。",
-        context: "对方观点：只要足够努力，就一定能成功。不成功只是努力不够。请进行反驳。",
-        materials: [
-          {id:"P1-0091", original:"纸上谈兵"},
-          {id:"P1-0057", original:"不识庐山真面目，只缘身在此山中。"},
-          {id:"P1-0185", original:"兼听则明，偏信则暗。"}
-        ],
-        requirement: "先准确复述对方观点，再进行反驳。至少使用2条素材，最后给出建设性立场。",
-        time_limit: "准备1分钟，表达2-3分钟",
-        evaluation_points: ["是否准确复述对方观点","反驳是否击中要害","是否有建设性替代观点"]
-      },
-      {
-        id: "EX-005",
-        type: "情境角色扮演",
-        title: "向上管理：向老板提不同意见",
-        difficulty: "高级",
-        scene: "职场谈吐",
-        context: "老板提出一个你认为风险很高的方案，并已在会上表达倾向。你需要在会后一对一沟通中提出不同看法。",
-        materials: [
-          {id:"P1-0110", original:"君子和而不同，小人同而不和。"},
-          {id:"P1-0103", original:"知之为知之，不知为不知，是知也。"}
-        ],
-        requirement: "既表达真实顾虑，又不破坏信任关系，争取被认真倾听。",
-        time_limit: "准备2分钟，表达2-3分钟",
-        evaluation_points: ["是否把握身份与关系","语气与分寸是否得当","是否完成沟通目标"]
-      },
-      {
-        id: "EX-006",
-        type: "快速反应",
-        title: "鼓励连续加班的同事",
-        difficulty: "初级",
-        scene: "劝慰安慰",
-        context: "用一句话鼓励一个连续加班两周、即将崩溃的同事。",
-        materials: [
-          {id:"P1-0044", original:"长风破浪会有时，直挂云帆济沧海。"},
-          {id:"P1-0060", original:"竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。"}
-        ],
-        requirement: "在30秒内完成。可直接使用或化用指定素材，要求自然、得体、有力量。",
-        time_limit: "30秒",
-        evaluation_points: ["反应速度","语言是否自然得体","是否有效完成沟通意图"]
-      },
-      {
-        id: "EX-007",
-        type: "结构模板填充",
-        title: "PREP结构练习",
-        difficulty: "中级",
-        scene: "职场谈吐",
-        context: "使用 PREP 结构（Point → Reason → Example → Point）表达：「在团队中，及时反馈比完美反馈更重要。」",
-        materials: [
-          {id:"P1-0014", original:"凡事豫则立，不豫则废。"},
-          {id:"P1-0125", original:"千里之行，始于足下。"}
-        ],
-        requirement: "严格遵循 PREP 结构，并至少嵌入2条指定素材。",
-        time_limit: "准备3分钟，表达2-3分钟",
-        evaluation_points: ["是否严格遵循指定结构","素材与各部分的匹配度","整体说服力"]
-      },
-      {
-        id: "EX-008",
-        type: "金句嵌入",
-        title: "公开演讲开场",
-        difficulty: "中级",
-        scene: "演讲开场",
-        context: "你在一场关于「长期主义」的分享会上做开场演讲。",
-        materials: [
-          {id:"P1-0016", original:"路漫漫其修远兮，吾将上下而求索。"},
-          {id:"P1-0140", original:"不积跬步，无以至千里。"},
-          {id:"P1-0151", original:"先天下之忧而忧，后天下之乐而乐。"}
-        ],
-        requirement: "用指定素材快速建立主题与格局，吸引听众注意。",
-        time_limit: "准备2分钟，表达1-2分钟",
-        evaluation_points: ["开场是否抓住注意力","素材是否服务主题","格局感是否到位"]
-      }
-    ];
-
-    // ===================== 安全存储（兼容沙箱环境） =====================
     const safeStorage = (() => {
       let memoryStore = {};
       let available = false;
@@ -745,9 +386,7 @@
         window.localStorage.setItem(key, "1");
         window.localStorage.removeItem(key);
         available = true;
-      } catch (e) {
-        available = false;
-      }
+      } catch (e) { available = false; }
       return {
         get(key) {
           if (available) {
@@ -764,16 +403,72 @@
       };
     })();
 
-    // ===================== 状态 =====================
+    let MATERIALS = [];
+    let EXERCISES = [];
     let currentExercise = null;
     let history = [];
+    let materialsPage = 1;
+    const PAGE_SIZE = 24;
+
     try {
       history = JSON.parse(safeStorage.get("tantu_history") || "[]");
-    } catch (e) {
-      history = [];
+    } catch (e) { history = []; }
+
+    async function loadData() {
+      try {
+        const [matRes, exRes] = await Promise.all([
+          fetch("./data/phase1_materials.json"),
+          fetch("./data/exercises_batch1.json")
+        ]);
+        if (!matRes.ok || !exRes.ok) throw new Error("数据文件加载失败，请确认 data 目录已上传");
+        const matData = await matRes.json();
+        const exData = await exRes.json();
+        MATERIALS = matData.materials || [];
+        EXERCISES = exData.exercises || [];
+        initApp();
+      } catch (err) {
+        console.error(err);
+        document.getElementById("loading").innerHTML = `
+          <p style="color:#c53030;margin-bottom:1rem;">数据加载失败</p>
+          <p style="font-size:0.9rem;">请确认仓库中存在以下文件：</p>
+          <p style="font-size:0.85rem;margin-top:0.5rem;"><code>data/phase1_materials.json</code><br><code>data/exercises_batch1.json</code></p>
+          <p style="font-size:0.85rem;margin-top:0.8rem;color:#4a5568;">${err.message}</p>
+        `;
+      }
     }
 
-    // ===================== 导航 =====================
+    function initApp() {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("app").style.display = "block";
+      document.getElementById("stat-materials").textContent = MATERIALS.length;
+      document.getElementById("stat-exercises").textContent = EXERCISES.length;
+      document.getElementById("stat-done").textContent = history.length;
+      document.getElementById("materials-subtitle").textContent =
+        "共 " + MATERIALS.length + " 条精选素材，支持按类别、场景、难度筛选与搜索";
+
+      const cats = [...new Set(MATERIALS.map(m => m.category))];
+      const catSelect = document.getElementById("filter-category");
+      cats.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c;
+        opt.textContent = c;
+        catSelect.appendChild(opt);
+      });
+
+      const types = [...new Set(EXERCISES.map(e => e.type))];
+      const typeSelect = document.getElementById("ex-filter-type");
+      types.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        typeSelect.appendChild(opt);
+      });
+
+      renderMaterials();
+      renderExercises();
+      renderRecommend();
+    }
+
     document.querySelectorAll(".nav-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
@@ -788,35 +483,61 @@
       });
     });
 
-    // ===================== 素材库渲染 =====================
-    function renderMaterials() {
+    function getFilteredMaterials() {
       const cat = document.getElementById("filter-category").value;
       const scene = document.getElementById("filter-scene").value;
       const diff = document.getElementById("filter-diff").value;
       const q = document.getElementById("filter-search").value.trim().toLowerCase();
-
-      const filtered = MATERIALS.filter(m => {
+      return MATERIALS.filter(m => {
         if (cat && m.category !== cat) return false;
         if (scene && !(m.scenes || []).includes(scene)) return false;
         if (diff && m.difficulty !== diff) return false;
-        if (q && !m.original.toLowerCase().includes(q) && !m.source.toLowerCase().includes(q)) return false;
+        if (q && !m.original.toLowerCase().includes(q) && !(m.source || "").toLowerCase().includes(q)) return false;
         return true;
       });
+    }
 
+    function renderMaterials() {
+      const filtered = getFilteredMaterials();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      if (materialsPage > totalPages) materialsPage = 1;
+      const start = (materialsPage - 1) * PAGE_SIZE;
+      const pageItems = filtered.slice(start, start + PAGE_SIZE);
       const grid = document.getElementById("materials-grid");
-      if (!filtered.length) {
+      if (!pageItems.length) {
         grid.innerHTML = '<div class="empty">没有符合条件的素材</div>';
-        return;
+      } else {
+        grid.innerHTML = pageItems.map(m => `
+          <div class="card" onclick="showMaterial('${m.id}')">
+            <span class="tag">${m.category}</span>
+            <span class="tag diff-${m.difficulty}">${m.difficulty}</span>
+            <h3>${m.original.length > 42 ? m.original.slice(0, 42) + "…" : m.original}</h3>
+            <div class="meta">${m.source || ""}</div>
+          </div>
+        `).join("");
       }
+      const pag = document.getElementById("materials-pagination");
+      if (totalPages <= 1) {
+        pag.innerHTML = '<span style="font-size:0.85rem;color:#4a5568;">共 ' + filtered.length + ' 条</span>';
+      } else {
+        let html = '<button ' + (materialsPage <= 1 ? 'disabled' : '') + ' onclick="changePage(' + (materialsPage - 1) + ')">上一页</button>';
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === 1 || i === totalPages || (i >= materialsPage - 2 && i <= materialsPage + 2)) {
+            html += '<button class="' + (i === materialsPage ? 'active' : '') + '" onclick="changePage(' + i + ')">' + i + '</button>';
+          } else if (i === materialsPage - 3 || i === materialsPage + 3) {
+            html += '<span style="padding:0.4rem;">…</span>';
+          }
+        }
+        html += '<button ' + (materialsPage >= totalPages ? 'disabled' : '') + ' onclick="changePage(' + (materialsPage + 1) + ')">下一页</button>';
+        html += '<span style="font-size:0.85rem;color:#4a5568;margin-left:0.5rem;">共 ' + filtered.length + ' 条</span>';
+        pag.innerHTML = html;
+      }
+    }
 
-      grid.innerHTML = filtered.map(m => `
-        <div class="card" onclick="showMaterial('${m.id}')">
-          <span class="tag">${m.category}</span>
-          <span class="tag diff-${m.difficulty}">${m.difficulty}</span>
-          <h3>${m.original}</h3>
-          <div class="meta">${m.source}</div>
-        </div>
-      `).join("");
+    function changePage(p) {
+      materialsPage = p;
+      renderMaterials();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function showMaterial(id) {
@@ -824,12 +545,13 @@
       if (!m) return;
       document.getElementById("modal-body").innerHTML = `
         <div class="original">${m.original}</div>
-        <div class="field"><label>出处</label><p>${m.source}</p></div>
-        <div class="field"><label>核心意义</label><p>${m.meaning}</p></div>
-        <div class="field"><label>谈吐用法</label><p>${m.usage_example}</p></div>
-        <div class="field"><label>难度</label><p>${m.difficulty}</p></div>
+        <div class="field"><label>出处</label><p>${m.source || "—"}</p></div>
+        <div class="field"><label>核心意义</label><p>${m.meaning || "—"}</p></div>
+        <div class="field"><label>谈吐用法</label><p>${m.usage_example || "—"}</p></div>
+        <div class="field"><label>难度</label><p>${m.difficulty || "—"}</p></div>
         <div class="field"><label>适用场景</label><p>${(m.scenes || []).join("、") || "通用"}</p></div>
-        <div class="field"><label>主题</label><p>${(m.themes || []).join("、")}</p></div>
+        <div class="field"><label>主题</label><p>${(m.themes || []).join("、") || "—"}</p></div>
+        <div class="field"><label>能力标签</label><p>${(m.ability_tags || []).join("、") || "—"}</p></div>
       `;
       document.getElementById("modal").classList.add("show");
     }
@@ -837,51 +559,55 @@
     function closeModal() {
       document.getElementById("modal").classList.remove("show");
     }
-
     document.getElementById("modal").addEventListener("click", e => {
       if (e.target === document.getElementById("modal")) closeModal();
     });
 
-    ["filter-category","filter-scene","filter-diff","filter-search"].forEach(id => {
-      document.getElementById(id).addEventListener("input", renderMaterials);
+    ["filter-category", "filter-scene", "filter-diff", "filter-search"].forEach(id => {
+      document.getElementById(id).addEventListener("input", () => {
+        materialsPage = 1;
+        renderMaterials();
+      });
     });
 
-    // ===================== 练习列表 =====================
     function renderExercises() {
       const type = document.getElementById("ex-filter-type").value;
       const diff = document.getElementById("ex-filter-diff").value;
-
       const filtered = EXERCISES.filter(ex => {
         if (type && ex.type !== type) return false;
         if (diff && ex.difficulty !== diff) return false;
         return true;
       });
-
       const grid = document.getElementById("exercises-grid");
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="empty">没有符合条件的练习</div>';
+        return;
+      }
       grid.innerHTML = filtered.map(ex => `
         <div class="card" onclick="startPractice('${ex.id}')">
           <span class="tag">${ex.type}</span>
           <span class="tag diff-${ex.difficulty}">${ex.difficulty}</span>
           <h3>${ex.title}</h3>
-          <div class="meta">场景：${ex.scene} · ${ex.time_limit}</div>
+          <div class="meta">场景：${ex.scene || "—"} · ${ex.time_limit || ""}</div>
         </div>
       `).join("");
     }
 
-    ["ex-filter-type","ex-filter-diff"].forEach(id => {
+    ["ex-filter-type", "ex-filter-diff"].forEach(id => {
       document.getElementById(id).addEventListener("change", renderExercises);
     });
 
-    // ===================== 开始练习 =====================
     function startPractice(id) {
       currentExercise = EXERCISES.find(x => x.id === id);
       if (!currentExercise) return;
-
       document.getElementById("exercises-grid").style.display = "none";
       document.getElementById("active-practice").style.display = "block";
       document.getElementById("feedback-panel").classList.remove("show");
-
       const ex = currentExercise;
+      const mats = (ex.materials || []).map(m => {
+        const full = MATERIALS.find(x => x.id === m.id);
+        return full ? full : m;
+      });
       let html = `
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
           <div>
@@ -891,15 +617,17 @@
           <button class="btn btn-outline" onclick="backToList()" style="padding:0.3rem 0.8rem;font-size:0.85rem;">返回列表</button>
         </div>
         <h3>${ex.title}</h3>
-        <div class="context">${ex.context || ex.opponent_view || ""}</div>
+        <div class="context">${ex.context || ex.opponent_view || ex.setting || ""}</div>
+        ${ex.role ? '<p style="font-size:0.9rem;"><strong>你的角色：</strong>' + ex.role + '</p>' : ""}
+        ${ex.goal ? '<p style="font-size:0.9rem;"><strong>沟通目标：</strong>' + ex.goal + '</p>' : ""}
         <div class="materials-list">
           <strong>指定素材：</strong>
           <ul>
-            ${ex.materials.map(m => `<li><code>${m.id}</code> ${m.original}</li>`).join("")}
+            ${mats.map(m => '<li><code>' + (m.id || "") + '</code> ' + (m.original || "") + (m.source ? '（' + m.source + '）' : '') + '</li>').join("")}
           </ul>
         </div>
-        <p style="font-size:0.9rem;color:var(--text-secondary);"><strong>要求：</strong>${ex.requirement}</p>
-        <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.4rem;"><strong>时间：</strong>${ex.time_limit}</p>
+        <p style="font-size:0.9rem;color:#4a5568;"><strong>要求：</strong>${ex.requirement || ""}</p>
+        <p style="font-size:0.85rem;color:#4a5568;margin-top:0.4rem;"><strong>时间：</strong>${ex.time_limit || "不限"}</p>
         <textarea id="user-answer" placeholder="在这里输入你的表达内容..."></textarea>
         <div class="btn-group">
           <button class="btn btn-primary" onclick="submitAnswer()">提交并获取反馈</button>
@@ -916,53 +644,40 @@
       currentExercise = null;
     }
 
-    // ===================== 简易自动评分（演示） =====================
     function submitAnswer() {
       const text = document.getElementById("user-answer").value.trim();
-      if (!text) {
-        alert("请先输入你的表达内容");
-        return;
-      }
-
+      if (!text) { alert("请先输入你的表达内容"); return; }
       const ex = currentExercise;
-      // 简单素材命中检测
+      const mats = ex.materials || [];
       let hitCount = 0;
       const hits = [];
-      ex.materials.forEach(m => {
-        // 取原文关键部分做匹配
-        const key = m.original.slice(0, 8);
-        if (text.includes(key) || text.includes(m.original.slice(0, 4))) {
+      mats.forEach(m => {
+        const key = (m.original || "").slice(0, 6);
+        if (key && (text.includes(key) || text.includes((m.original || "").slice(0, 4)))) {
           hitCount++;
           hits.push(m.original);
         }
       });
-
-      const materialScore = Math.min(100, 40 + hitCount * 30);
-      const lengthScore = text.length > 30 ? (text.length < 600 ? 85 : 70) : 50;
-      const structureScore = /因此|所以|总之|综上所述|我认为|首先|其次|最后/.test(text) ? 80 : 60;
+      const materialScore = Math.min(100, 35 + hitCount * 32);
+      const lengthScore = text.length > 40 ? (text.length < 800 ? 85 : 70) : 45;
+      const structureScore = /因此|所以|总之|综上所述|我认为|首先|其次|最后|然而|但是/.test(text) ? 82 : 58;
       const overall = Math.round(materialScore * 0.35 + lengthScore * 0.3 + structureScore * 0.35);
-
       const highlights = [];
       const improvements = [];
-
-      if (hitCount >= 2) highlights.push(`成功使用了 ${hitCount} 条指定素材：${hits.join("；")}`);
-      else if (hitCount === 1) highlights.push(`使用了素材「${hits[0]}」`);
-      else improvements.push("未检测到指定素材的使用，建议自然嵌入至少1-2条经典表述");
-
+      if (hitCount >= 2) highlights.push("成功使用了 " + hitCount + " 条指定素材");
+      else if (hitCount === 1) highlights.push("使用了素材「" + hits[0] + "」");
+      else improvements.push("未检测到指定素材的使用，建议自然嵌入至少 1～2 条经典表述");
       if (text.length > 80) highlights.push("表达内容较为充实");
       else improvements.push("内容偏短，可尝试展开论证或增加具体例子");
-
       if (structureScore >= 80) highlights.push("出现了较清晰的逻辑连接词，结构意识良好");
-      else improvements.push("可增加「首先/其次/总之」等结构词，让层次更清晰");
-
+      else improvements.push("可增加「首先 / 其次 / 总之」等结构词，让层次更清晰");
       if (overall >= 75) improvements.push("整体不错，可进一步打磨素材与上下文的过渡，让引用更自然");
       else improvements.push("建议先明确中心观点，再围绕观点选择最贴切的素材");
 
-      // 显示反馈
       const panel = document.getElementById("feedback-panel");
       panel.innerHTML = `
         <div class="score-big">${overall}</div>
-        <div style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.8rem;">综合得分（演示版自动评分）</div>
+        <div style="font-size:0.9rem;color:#4a5568;margin-bottom:0.8rem;">综合得分（自动评分）</div>
         <div class="radar-placeholder">
           <div class="dim-score">素材调用 <strong>${materialScore}</strong></div>
           <div class="dim-score">结构完整 <strong>${structureScore}</strong></div>
@@ -970,9 +685,9 @@
         </div>
         <div class="feedback-list">
           <h4>亮点</h4>
-          <ul>${highlights.map(h => `<li>${h}</li>`).join("") || "<li>继续加油</li>"}</ul>
+          <ul>${highlights.map(h => "<li>" + h + "</li>").join("") || "<li>继续加油</li>"}</ul>
           <h4 style="margin-top:0.8rem;">可提升</h4>
-          <ul>${improvements.map(i => `<li>${i}</li>`).join("")}</ul>
+          <ul>${improvements.map(i => "<li>" + i + "</li>").join("")}</ul>
         </div>
         <div class="btn-group">
           <button class="btn btn-primary" onclick="saveHistory(${overall})">保存记录</button>
@@ -980,8 +695,6 @@
         </div>
       `;
       panel.classList.add("show");
-
-      // 更新统计
       document.getElementById("stat-done").textContent = history.length + 1;
     }
 
@@ -1011,30 +724,25 @@
         <div class="card" style="cursor:default;margin-bottom:0.8rem;">
           <span class="tag">${h.type}</span>
           <h3 style="font-size:1rem;">${h.title}</h3>
-          <div class="meta">得分：<strong style="color:var(--primary)">${h.score}</strong> · ${h.time}</div>
+          <div class="meta">得分：<strong style="color:#1a365d">${h.score}</strong> · ${h.time}</div>
         </div>
       `).join("");
     }
 
-    // ===================== 推荐练习 =====================
     function renderRecommend() {
       const grid = document.getElementById("recommend-grid");
       const recs = EXERCISES.slice(0, 3);
       grid.innerHTML = recs.map(ex => `
-        <div class="card" onclick="document.querySelector('[data-section=practice]').click(); setTimeout(()=>startPractice('${ex.id}'),100)">
+        <div class="card" onclick="document.querySelector('[data-section=practice]').click(); setTimeout(function(){startPractice('${ex.id}')},120)">
           <span class="tag">${ex.type}</span>
           <span class="tag diff-${ex.difficulty}">${ex.difficulty}</span>
           <h3>${ex.title}</h3>
-          <div class="meta">${ex.scene}</div>
+          <div class="meta">${ex.scene || ""}</div>
         </div>
       `).join("");
     }
 
-    // ===================== 初始化 =====================
-    renderMaterials();
-    renderExercises();
-    renderRecommend();
-    document.getElementById("stat-done").textContent = history.length;
+    loadData();
   </script>
 </body>
 </html>
